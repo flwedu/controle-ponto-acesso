@@ -30,10 +30,6 @@ public class JornadaTrabalhoService {
         return repository.save(jornada);
     }
 
-    public JornadaTrabalho update(JornadaTrabalho novaJornada){
-        return repository.save(novaJornada);
-    }
-
     public void delete(long id){
         repository.deleteById(id);
     }
