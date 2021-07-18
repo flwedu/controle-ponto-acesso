@@ -4,6 +4,7 @@ import com.dio.controlepontoacesso.model.JornadaTrabalho;
 import com.dio.controlepontoacesso.service.JornadaTrabalhoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,29 +33,29 @@ public class JornadaTrabalhoController {
      * DELETE => Remove um objeto.
      */
 
-    @GetMapping
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<JornadaTrabalho>> getJornadaList(){
         return ResponseEntity.ok(service.findAll());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<JornadaTrabalho> getJornadaById(@PathVariable long id){
         return service.findById(id)
                 .map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<JornadaTrabalho> saveJornada(@RequestBody JornadaTrabalho novaJornadaTrabalho){
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(service.save(novaJornadaTrabalho));
     }
 
-    @PutMapping
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<JornadaTrabalho> putJornada(@RequestBody JornadaTrabalho novaJornadaTrabalho){
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.update(novaJornadaTrabalho));
     }
 
-    @DeleteMapping
+    @DeleteMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<JornadaTrabalho> deleteJornada(@NotNull @RequestBody JornadaTrabalho jornadaASerDeletada){
         service.delete(jornadaASerDeletada.getId());
         return ResponseEntity.ok().build();
