@@ -3,6 +3,7 @@ package com.dio.controlepontoacesso.model;
 import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Getter
@@ -15,6 +16,7 @@ import javax.persistence.Id;
 public class CategoriaUsuario {
 
     @Id
+    @GeneratedValue
     private long id;
     private String descricao;
 }

@@ -23,7 +23,7 @@ public class Movimentacao {
     @NoArgsConstructor
     @AllArgsConstructor
     @EqualsAndHashCode
-    public class MovimentacaoId implements Serializable {
+    public static class MovimentacaoId implements Serializable {
         private long idMovimento;
         private long idUsuario;
     }

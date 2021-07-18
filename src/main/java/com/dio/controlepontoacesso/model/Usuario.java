@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -24,6 +25,7 @@ import lombok.Setter;
 public class Usuario {
 
     @Id
+    @GeneratedValue
     private long id;
 
     private String nome;

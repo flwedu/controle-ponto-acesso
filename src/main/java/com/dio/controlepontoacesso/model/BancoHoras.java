@@ -23,7 +23,7 @@ public class BancoHoras {
     @AllArgsConstructor
     @NoArgsConstructor
     @EqualsAndHashCode
-    public class BancoHorasId implements Serializable {
+    public static class BancoHorasId implements Serializable {
         private long idBancoHoras;
         private long idMovimento;
         private long idUsuario;

@@ -3,6 +3,7 @@ package com.dio.controlepontoacesso.model;
 import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -16,6 +17,7 @@ import javax.persistence.ManyToOne;
 public class Localidade {
 
     @Id
+    @GeneratedValue
     private long id;
     private String descricao;
 

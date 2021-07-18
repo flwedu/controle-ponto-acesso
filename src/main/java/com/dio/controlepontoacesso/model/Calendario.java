@@ -3,6 +3,7 @@ package com.dio.controlepontoacesso.model;
 import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
@@ -17,6 +18,7 @@ import java.time.LocalDateTime;
 public class Calendario {
 
     @Id
+    @GeneratedValue
     private long id;
     private String descricao;
     private LocalDateTime dataEspecial;
