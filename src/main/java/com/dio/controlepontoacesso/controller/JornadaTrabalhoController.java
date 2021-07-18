@@ -52,7 +52,7 @@ public class JornadaTrabalhoController {
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<JornadaTrabalho> putJornada(@RequestBody JornadaTrabalho novaJornadaTrabalho){
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.update(novaJornadaTrabalho));
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.save(novaJornadaTrabalho));
     }
 
     @DeleteMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
