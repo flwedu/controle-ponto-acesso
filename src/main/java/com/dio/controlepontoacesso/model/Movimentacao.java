@@ -16,11 +16,12 @@ import java.time.LocalDateTime;
 @Entity
 public class Movimentacao {
 
-    /*Cria um id composto (2 chaves de Id)*/
+    /* Cria um id composto (2 chaves de Id) */
     @Embeddable
     @NoArgsConstructor
     @AllArgsConstructor
     @EqualsAndHashCode
+    @Getter
     public class MovimentacaoId implements Serializable {
         private long idMovimento;
         private long idUsuario;
