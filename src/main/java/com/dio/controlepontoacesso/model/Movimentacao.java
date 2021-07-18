@@ -2,10 +2,7 @@ package com.dio.controlepontoacesso.model;
 
 import lombok.*;
 
-import javax.persistence.Embeddable;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -16,6 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Builder
+@Entity
 public class Movimentacao {
 
     /*Cria um id composto (2 chaves de Id)*/
@@ -23,7 +21,7 @@ public class Movimentacao {
     @NoArgsConstructor
     @AllArgsConstructor
     @EqualsAndHashCode
-    public static class MovimentacaoId implements Serializable {
+    public class MovimentacaoId implements Serializable {
         private long idMovimento;
         private long idUsuario;
     }
