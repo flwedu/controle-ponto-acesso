@@ -19,28 +19,28 @@ public class BancoHorasController {
     BancoHorasService service;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<BancoHoras>> getListaTipoData() {
+    public ResponseEntity<List<BancoHoras>> getListaBancoHoras() {
         return ResponseEntity.ok(service.findAll());
     }
 
     @GetMapping(path = "/{id1}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<BancoHoras> getTipoDataById(@PathVariable long id) {
+    public ResponseEntity<BancoHoras> getBancoHorasById(@PathVariable long id) {
 
         return service.findById(id).map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<BancoHoras> saveJornada(@RequestBody BancoHoras bancoHoras) {
+    public ResponseEntity<BancoHoras> saveBancoHoras(@RequestBody BancoHoras bancoHoras) {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(bancoHoras));
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<BancoHoras> putJornada(@RequestBody BancoHoras bancoHoras) {
+    public ResponseEntity<BancoHoras> putBancoHoras(@RequestBody BancoHoras bancoHoras) {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.save(bancoHoras));
     }
 
     @DeleteMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<BancoHoras> deleteJornada(@NotNull @RequestBody BancoHoras bancoHoras) {
+    public ResponseEntity<BancoHoras> deleteBancoHoras(@NotNull @RequestBody BancoHoras bancoHoras) {
         service.delete(bancoHoras.getId().getIdBancoHoras());
         return ResponseEntity.ok().build();
     }

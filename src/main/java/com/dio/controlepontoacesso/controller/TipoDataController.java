@@ -19,30 +19,27 @@ public class TipoDataController {
     TipoDataService service;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<TipoData>> getListaTipoData(){
+    public ResponseEntity<List<TipoData>> getListaTipoData() {
         return ResponseEntity.ok(service.findAll());
     }
 
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<TipoData> getTipoDataById(@PathVariable long id){
-        return service.findById(id)
-                .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
+    public ResponseEntity<TipoData> getTipoDataById(@PathVariable long id) {
+        return service.findById(id).map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<TipoData> saveJornada(@RequestBody TipoData tipoData){
-        return ResponseEntity.status(HttpStatus.CREATED)
-                .body(service.save(tipoData));
+    public ResponseEntity<TipoData> saveTipoData(@RequestBody TipoData tipoData) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.save(tipoData));
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<TipoData> putJornada(@RequestBody TipoData tipoData){
+    public ResponseEntity<TipoData> putTipoData(@RequestBody TipoData tipoData) {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.save(tipoData));
     }
 
     @DeleteMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<TipoData> deleteJornada(@NotNull @RequestBody TipoData tipoData){
+    public ResponseEntity<TipoData> deleteTipoData(@NotNull @RequestBody TipoData tipoData) {
         service.delete(tipoData.getId());
         return ResponseEntity.ok().build();
     }

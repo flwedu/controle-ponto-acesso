@@ -29,17 +29,17 @@ public class EmpresaController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Empresa> saveJornada(@RequestBody Empresa empresa) {
+    public ResponseEntity<Empresa> saveEmpresa(@RequestBody Empresa empresa) {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(empresa));
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Empresa> putJornada(@RequestBody Empresa empresa) {
+    public ResponseEntity<Empresa> putEmpresa(@RequestBody Empresa empresa) {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.save(empresa));
     }
 
     @DeleteMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Empresa> deleteJornada(@NotNull @RequestBody Empresa empresa) {
+    public ResponseEntity<Empresa> deleteEmpresa(@NotNull @RequestBody Empresa empresa) {
         service.delete(empresa.getId());
         return ResponseEntity.ok().build();
     }

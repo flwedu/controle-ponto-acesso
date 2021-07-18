@@ -28,27 +28,27 @@ public class CategoriaUsuarioController {
     CategoriaUsuarioService service;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<CategoriaUsuario>> getListaTipoData() {
+    public ResponseEntity<List<CategoriaUsuario>> getListaCategoriaUsuario() {
         return ResponseEntity.ok(service.findAll());
     }
 
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<CategoriaUsuario> getTipoDataById(@PathVariable long id) {
+    public ResponseEntity<CategoriaUsuario> getCategoriaUsuarioById(@PathVariable long id) {
         return service.findById(id).map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<CategoriaUsuario> saveJornada(@RequestBody CategoriaUsuario categoria) {
+    public ResponseEntity<CategoriaUsuario> saveCategoriaUsuario(@RequestBody CategoriaUsuario categoria) {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(categoria));
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<CategoriaUsuario> putJornada(@RequestBody CategoriaUsuario categoria) {
+    public ResponseEntity<CategoriaUsuario> putCategoriaUsuario(@RequestBody CategoriaUsuario categoria) {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.save(categoria));
     }
 
     @DeleteMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<CategoriaUsuario> deleteJornada(@NotNull @RequestBody CategoriaUsuario categoria) {
+    public ResponseEntity<CategoriaUsuario> deleteCategoriaUsuario(@NotNull @RequestBody CategoriaUsuario categoria) {
         service.delete(categoria.getId());
         return ResponseEntity.ok().build();
     }

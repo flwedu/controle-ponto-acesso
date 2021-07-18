@@ -29,17 +29,17 @@ public class CalendarioController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Calendario> saveJornada(@RequestBody Calendario calendario) {
+    public ResponseEntity<Calendario> saveCalendario(@RequestBody Calendario calendario) {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(calendario));
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Calendario> putJornada(@RequestBody Calendario calendario) {
+    public ResponseEntity<Calendario> putCalendario(@RequestBody Calendario calendario) {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.save(calendario));
     }
 
     @DeleteMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Calendario> deleteJornada(@NotNull @RequestBody Calendario calendario) {
+    public ResponseEntity<Calendario> deleteCalendario(@NotNull @RequestBody Calendario calendario) {
         service.delete(calendario.getId());
         return ResponseEntity.ok().build();
     }
