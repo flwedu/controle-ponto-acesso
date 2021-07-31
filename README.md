@@ -8,7 +8,6 @@ Projeto utilizado para demonstrar o uso de ferramentas para facilitar a constru�
 
 O projeto utiliza um banco de dados simples H2 em memória, que deve ser configurado no `spring.datasource.url` dentro do arquivo `src/main/resources/application.properties`.
 
-
 ## Funcionamento
 
 Para rodar o projeto, utilize o comando
@@ -17,7 +16,7 @@ Para rodar o projeto, utilize o comando
 gradle bootRun
 ```
 
-Por padrão, a API está configurado para rodar em [http://localhost:8081/api](http://localhost:8081/api), mas a porta também pode ser alterada no arquivo `application.properties` citado anteriormente.
+Por padrão, O servidor está configurado para ouvir em [http://localhost:8081/api](http://localhost:8081/api), mas a porta também pode ser alterada no arquivo `application.properties` citado anteriormente.
 
 A documentação dos endpoints pode ser visualizada em [http://localhost:8081/api/swagger-ui.html](http://localhost:8081/api/swagger-ui.html).
 
